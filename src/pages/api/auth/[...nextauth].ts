@@ -1,6 +1,8 @@
 import NextAuth from "next-auth";
 import TwitterProvider from "next-auth/providers/twitter";
 
+console.log(process.env)
+
 export default NextAuth({
   providers: [
     TwitterProvider({
