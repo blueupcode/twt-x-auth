@@ -1,25 +1,11 @@
 import NextAuth from "next-auth";
 import TwitterProvider from "next-auth/providers/twitter";
-import { JWT } from "next-auth/jwt";
-import { Session } from "next-auth";
-
-interface CustomToken extends JWT {
-  id: string;
-  username: string;
-}
-
-interface CustomSession extends Session {
-  user: {
-    id: string;
-    username: string;
-  } & Session["user"];
-}
 
 export default NextAuth({
   providers: [
     TwitterProvider({
-      clientId: process.env.TWITTER_CLIENT_ID!,
-      clientSecret: process.env.TWITTER_CLIENT_SECRET!,
+      clientId: process.env.NEXT_PUBLIC_TWITTER_CLIENT_ID!,
+      clientSecret: process.env.NEXT_PUBLIC_TWITTER_CLIENT_SECRET!,
       version: "2.0", // Required for Twitter OAuth 2.0
     }),
   ],
